@@ -15,10 +15,10 @@ import javax.xml.datatype.DatatypeConfigurationException;
 // 사용
 public class JoinDAO {
 	
-	boolean pw_chk = false;
-	boolean email_chk = false;
-	boolean num_chk = false;
-	boolean birthday_chk = false;
+//	boolean pw_chk = false;
+//	boolean email_chk = false;
+//	boolean num_chk = false;
+//	boolean birthday_chk = false;
 	
 	static {
 		try {
@@ -30,7 +30,8 @@ public class JoinDAO {
 	private Connection conn = getConnection();
 	public static Connection getConnection() {
 		try {
-			return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "hr","1234");
+			return DriverManager.getConnection
+					("jdbc:oracle:thin:@localhost:1521:XE", "hr","1234");
 		}catch(SQLException e) {
 			e.printStackTrace();
 			return null;
@@ -42,35 +43,45 @@ public class JoinDAO {
 		UIManager.put("OptionPane.messageFont",
 				new Font("굴림", Font.BOLD, 50));
 		String query =
-				"INSERT INTO user_info (id,password,name,phone_number,birthday,email)"
+				"INSERT INTO user_info "
+				+ "(id,password,name,phone_number,birthday,email)"
 				+ " VALUES (?,?,?,?,?,?)";
 		
 		try( PreparedStatement pstmt = conn.prepareStatement(query);
 				){
-					pstmt.setString(1, Test3.id2);
-					pstmt.setString(2, Test3.pw2);
-					pstmt.setString(3, Test3.name);
-					pstmt.setString(4, Test3.phone_number);
-					pstmt.setString(5, Test3.birthday);
-					pstmt.setString(6, Test3.email);
-					
-					try(ResultSet rs = pstmt.executeQuery();){
-						if(rs.next()) {
-							JOptionPane.showMessageDialog(null,"회원가입 성공");
-							Choice c = new Choice();
-							c.setVisible(true);
-							return true;
-						}else {
-							JOptionPane.showMessageDialog(null,"회원가입 실패");
-							return false;
+					if(Test3.pw_chk && Test3.email_chk &&
+								Test3.num_chk && Test3.birthday_chk) {
+						pstmt.setString(1, Test3.id2);
+						pstmt.setString(2, Test3.pw2);
+						pstmt.setString(3, Test3.name);
+						pstmt.setString(4, Test3.phone_number);
+						pstmt.setString(5, Test3.birthday);
+						pstmt.setString(6, Test3.email);
+						try(ResultSet rs = pstmt.executeQuery();){
+							if(rs.next()) {
+								JOptionPane.showMessageDialog(null,"회원가입 성공");
+								Choice c = new Choice();
+								c.setVisible(true);
+								return true;
+							}else {
+								JOptionPane.showMessageDialog
+								(null,"회원가입 실패입니다");
+								return false;
+							}
 						}
-					}catch(Exception e) {
-						JOptionPane.showMessageDialog
-						(null,"회원가입 실패(중복된 아이디가 있을 수 있습니다)");
-						e.printStackTrace();
-						return false;
 					}
+					JOptionPane.showMessageDialog(null,"회원가입 실패");
+					return false;
+					
+					
 		} catch (SQLException e) {
+			JOptionPane.showMessageDialog
+			(null,"회원가입 실패(중복된 아이디가 있을 수 있습니다)");
+			e.printStackTrace();
+			return false;
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog
+			(null,"회원가입 실패(중복된 아이디가 있을 수 있습니다)");
 			e.printStackTrace();
 			return false;
 		}

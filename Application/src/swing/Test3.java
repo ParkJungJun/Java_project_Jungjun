@@ -49,6 +49,18 @@ public class Test3 extends JFrame {
 	public static String birthday = "";
 	public static String email = "";
 	
+	public static String pw_alrim_str = "";
+	public static String email_alrim_str = "";
+	public static String number_alrim_str = "";
+	public static String birthday_alrim_str = "";
+	
+	public static boolean pw_chk = false;
+	public static boolean email_chk = false;
+	public static boolean num_chk = false;
+	public static boolean birthday_chk = false;
+	
+	
+	
 	ImageIcon img1 = new ImageIcon
 			("C:/java_PJJ/Java_project_Jungjun/Application/images/join_finish.PNG");
 	ImageIcon img2 = new ImageIcon
@@ -223,20 +235,20 @@ public class Test3 extends JFrame {
 		email_textField.setColumns(10);
 		
 		JButton check_btn_2 = new JButton(img1);
-		check_btn_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				id2 = id_textField_2.getText();
-				pw2 = pw_passwordField_2.getText();
-				name = name_textField.getText();
-				phone_number = phone_textField.getText();
-				birthday = birthday_textField.getText();
-				email = email_textField.getText();
-				
-				JoinDAO dao2 = new JoinDAO();
-				boolean join_result = dao2.join_chk();
-				System.out.println("회원가입 성공 여부 : " + join_result);
-				}
-		});
+//		check_btn_2.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				id2 = id_textField_2.getText();
+//				pw2 = pw_passwordField_2.getText();
+//				name = name_textField.getText();
+//				phone_number = phone_textField.getText();
+//				birthday = birthday_textField.getText();
+//				email = email_textField.getText();
+//				
+//				JoinDAO dao2 = new JoinDAO();
+//				boolean join_result = dao2.join_chk();
+//				System.out.println("회원가입 성공 여부 : " + join_result);
+//				}
+//		});
 		check_btn_2.setFont(new Font("굴림", Font.PLAIN, 60));
 		check_btn_2.setBounds(650, 675, 699, 83);
 		join.add(check_btn_2);
@@ -303,8 +315,13 @@ public class Test3 extends JFrame {
 				PW_chk pw = new PW_chk();
 				pw2 = pw_passwordField_2.getText();
 				pw_alrim.setText(pw.pw_chk(pw2));
+				pw_alrim_str = pw_alrim.getText();
 			}
 		});
+		
+		if(pw_alrim_str.equals("사용 가능한 비밀번호입니다")) {
+			pw_chk = true;
+		}
 		
 		email_textField.addKeyListener(new KeyAdapter() {
 			
@@ -313,8 +330,13 @@ public class Test3 extends JFrame {
 				email = email_textField.getText();
 				Email_chk email_1 = new Email_chk();
 				email_alrim.setText(email_1.email_chk(email));
+				email_alrim_str = email_alrim.getText();
 			}
 		});
+		
+		if(email_alrim_str.equals("이메일을 정확히 입력하셨습니다")) {
+			email_chk = true;
+		}
 		
 		phone_textField.addKeyListener(new KeyAdapter() {
 			
@@ -323,8 +345,13 @@ public class Test3 extends JFrame {
 				phone_number = phone_textField.getText();
 				Number_chk number_1 = new Number_chk();
 				number_alrim.setText(number_1.number_chk(phone_number));
+				number_alrim_str = number_alrim.getText();
 			}
 		});
+		
+		if(number_alrim_str.equals("올바른 전화번호입니다")) {
+			num_chk = true;
+		}
 		
 		birthday_textField.addKeyListener(new KeyAdapter() {
 			
@@ -333,10 +360,28 @@ public class Test3 extends JFrame {
 				birthday = birthday_textField.getText();
 				Birthday_chk chk_birthday = new Birthday_chk();
 				birthday_alrim.setText(chk_birthday.birthday_chk(birthday));
+				birthday_alrim_str = birthday_alrim.getText();
 			}
 		});
 		
+		if(birthday_alrim_str.equals("올바른 생년월일입니다")) {
+			birthday_chk = true;
+		}
 		
+		check_btn_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				id2 = id_textField_2.getText();
+				pw2 = pw_passwordField_2.getText();
+				name = name_textField.getText();
+				phone_number = phone_textField.getText();
+				birthday = birthday_textField.getText();
+				email = email_textField.getText();
+				
+				JoinDAO dao2 = new JoinDAO();
+				boolean join_result = dao2.join_chk();
+				System.out.println("회원가입 성공 여부 : " + join_result);
+				}
+		});
 		
 		join_btn.setFont(new Font("굴림", Font.PLAIN, 70));
 		join_btn.setBounds(920, 880, 636, 84);
