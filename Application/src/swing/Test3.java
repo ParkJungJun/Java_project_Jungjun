@@ -1,19 +1,17 @@
 package swing;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,10 +20,8 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
-
-import back.Main;
 import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
 public class Test3 extends JFrame {
 
@@ -38,6 +34,8 @@ public class Test3 extends JFrame {
 	private JTextField phone_textField;
 	private JTextField birthday_textField;
 	private JTextField email_textField;
+	
+	private final Action action = new SwingAction();
 	
 	public static String id = "";
 	public static String pw = "";
@@ -73,6 +71,9 @@ public class Test3 extends JFrame {
 			("C:/java_PJJ/Java_project_Jungjun/Application/images/login_page.PNG");
 	ImageIcon img6 = new ImageIcon
 			("C:/java_PJJ/Java_project_Jungjun/Application/images/join_page.PNG");
+	ImageIcon img7 = new ImageIcon
+			("C:/java_PJJ/Java_project_Jungjun/Application/images/back.PNG");
+	
 	
 	Image img = img3.getImage();
  	Image updateImg = img.getScaledInstance(400, 330, Image.SCALE_SMOOTH);
@@ -109,7 +110,7 @@ public class Test3 extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLayeredPane layeredPane = new JLayeredPane();
-		layeredPane.setBounds(0, 0, 1800, 850);
+		layeredPane.setBounds(150, 0, 1800, 850);
 		contentPane.add(layeredPane);
 		layeredPane.setLayout(new CardLayout(0, 0));
 		
@@ -155,7 +156,7 @@ public class Test3 extends JFrame {
 		login.add(check_btn);
 		
 		JLabel E_RAIL = new JLabel(updateIcon);
-		E_RAIL.setBounds(750, 35, 400, 330);
+		E_RAIL.setBounds(600, 35, 400, 330);
 		login.add(E_RAIL);
 		
 		JPanel join = new JPanel();
@@ -165,7 +166,7 @@ public class Test3 extends JFrame {
 		JLabel join_label = new JLabel("회원가입");
 		join_label.setHorizontalAlignment(SwingConstants.CENTER);
 		join_label.setFont(new Font("휴먼둥근헤드라인", Font.PLAIN, 70));
-		join_label.setBounds(85, 10, 400, 200);
+		join_label.setBounds(85, 150, 400, 200);
 		join.add(join_label);
 		
 		JLabel id_label_2 = new JLabel("아이디 :");
@@ -285,7 +286,7 @@ public class Test3 extends JFrame {
 		birthday_alrim.setBounds(1250, 400, 400, 60);
 		join.add(birthday_alrim);
 		
-		JButton login_btn = new JButton(img5);
+		JButton login_btn = new JButton(img7);
 		login_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				layeredPane.removeAll();
@@ -295,10 +296,14 @@ public class Test3 extends JFrame {
 			}
 		});
 		login_btn.setFont(new Font("굴림", Font.PLAIN, 70));
-		login_btn.setBounds(220, 880, 636, 84);
+		login_btn.setBounds(10, 10, 136, 136);
+		login_btn.setBorderPainted(false);
+		login_btn.setContentAreaFilled(false);
+		login_btn.setFocusPainted(false);
 		contentPane.add(login_btn);
 		
-		JButton join_btn = new JButton(img6);
+		JButton join_btn = new JButton("회원가입");
+		join_btn.setForeground(new Color(0, 128, 192));
 		join_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				layeredPane.removeAll();
@@ -391,9 +396,18 @@ public class Test3 extends JFrame {
 				}
 		});
 		
-		join_btn.setFont(new Font("굴림", Font.PLAIN, 70));
-		join_btn.setBounds(920, 880, 636, 84);
+		join_btn.setFont(new Font("HY헤드라인M", Font.PLAIN, 70));
+		join_btn.setBounds(1250, 880, 350, 100);
 		contentPane.add(join_btn);
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
+	}
+	
+	private class SwingAction extends AbstractAction {
+		public SwingAction() {
+			putValue(NAME, "SwingAction");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+		}
 	}
 }
