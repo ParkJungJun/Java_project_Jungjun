@@ -49,8 +49,8 @@ public class JoinDAO {
 		
 		try( PreparedStatement pstmt = conn.prepareStatement(query);
 				){
-					if(Test3.pw_chk && Test3.email_chk &&
-								Test3.num_chk && Test3.birthday_chk) {
+					if(Test3.pw_chk_B && Test3.email_chk_B &&
+								Test3.num_chk_B && Test3.birthday_chk_B) {
 						pstmt.setString(1, Test3.id2);
 						pstmt.setString(2, Test3.pw2);
 						pstmt.setString(3, Test3.name);
@@ -70,7 +70,7 @@ public class JoinDAO {
 							}
 						}
 					}
-					JOptionPane.showMessageDialog(null,"회원가입 실패");
+					JOptionPane.showMessageDialog(null,"정확한 값을 입력하세요");
 					return false;
 					
 					

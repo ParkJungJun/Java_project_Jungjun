@@ -18,7 +18,7 @@ public class PW_chk {
 //		System.out.println(Arrays.toString(password_1));
 //	}
 	
-	public String pw_chk(String pw) {
+	public boolean pw_chk(String pw) {
 		for(int i = 0; i < pw.length(); ++i) {
 			password_1[i] = pw.charAt(i);
 			ch = password_1[i];
@@ -33,10 +33,10 @@ public class PW_chk {
 				hasSpecal = true;
 			}
 			if(pw.length() >= 6 && hasNumber && hasLower && hasUpper && hasSpecal){
-				return "사용 가능한 비밀번호입니다";
+				return true;
 			}
 		}
-		return "6자리이상 영어 대문자,소문자,숫자,특수문자를 포함하세요";
+		return false;
 		
 	}
 }
