@@ -15,6 +15,11 @@ import javax.xml.datatype.DatatypeConfigurationException;
 // 사용
 public class JoinDAO {
 	
+	boolean pw_chk = false;
+	boolean email_chk = false;
+	boolean num_chk = false;
+	boolean birthday_chk = false;
+	
 	static {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -60,7 +65,8 @@ public class JoinDAO {
 							return false;
 						}
 					}catch(Exception e) {
-						JOptionPane.showMessageDialog(null,"회원가입 실패(중복된 아이디가 있을 수 있습니다)");
+						JOptionPane.showMessageDialog
+						(null,"회원가입 실패(중복된 아이디가 있을 수 있습니다)");
 						e.printStackTrace();
 						return false;
 					}
