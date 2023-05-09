@@ -22,9 +22,10 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.Icon;
 
 public class Test3 extends JFrame {
-
+	
 	private JPanel contentPane;
 	private JTextField id_textField;
 	private JPasswordField pw_passwordField;
@@ -73,7 +74,8 @@ public class Test3 extends JFrame {
 			("C:/java_PJJ/Java_project_Jungjun/Application/images/join_page.PNG");
 	ImageIcon img7 = new ImageIcon
 			("C:/java_PJJ/Java_project_Jungjun/Application/images/back.PNG");
-	
+	ImageIcon img8 = new ImageIcon
+			("C:/java_PJJ/Java_project_Jungjun/Application/images/main.PNG");
 	
 	Image img = img3.getImage();
  	Image updateImg = img.getScaledInstance(400, 330, Image.SCALE_SMOOTH);
@@ -110,36 +112,46 @@ public class Test3 extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLayeredPane layeredPane = new JLayeredPane();
-		layeredPane.setBounds(150, 0, 1800, 850);
+		layeredPane.setBounds(0, 0, 1920, 1080);
 		contentPane.add(layeredPane);
 		layeredPane.setLayout(new CardLayout(0, 0));
+		
+//		JPanel main = new JPanel();
+//		layeredPane.add(main, "name_2186565809768800");
+//		main.setLayout(null);
+//		
+//		JLabel main_image = new JLabel(img8);
+//		main_image.setBounds(0, 0, 1700, 1000);
+//		main.add(main_image);
 		
 		JPanel login = new JPanel();
 		layeredPane.add(login, "name_29419370275400");
 		login.setLayout(null);
 		
-		JLabel id_label = new JLabel("아이디 :");
-		id_label.setFont(new Font("휴먼둥근헤드라인", Font.PLAIN, 50));
-		id_label.setBounds(510, 440, 200, 100);
+		JLabel id_label = new JLabel("아이디");
+		id_label.setFont(new Font("HY헤드라인M", Font.PLAIN, 50));
+		id_label.setBounds(585, 437, 200, 100);
 		login.add(id_label);
 		
-		JLabel pw_label = new JLabel("비밀번호 :");
-		pw_label.setFont(new Font("휴먼둥근헤드라인", Font.PLAIN, 50));
-		pw_label.setBounds(510, 570, 250, 100);
+		JLabel pw_label = new JLabel("비밀번호");
+		pw_label.setFont(new Font("HY헤드라인M", Font.PLAIN, 50));
+		pw_label.setBounds(585, 567, 250, 100);
 		login.add(pw_label);
 		
 		id_textField = new JTextField();
 		id_textField.setFont(new Font("굴림", Font.PLAIN, 50));
-		id_textField.setBounds(810, 440, 400, 100);
+		id_textField.setBounds(885, 437, 400, 100);
 		login.add(id_textField);
 		id_textField.setColumns(10);
 		
 		pw_passwordField = new JPasswordField();
 		pw_passwordField.setFont(new Font("굴림", Font.PLAIN, 50));
-		pw_passwordField.setBounds(810, 570, 400, 100);
+		pw_passwordField.setBounds(885, 567, 400, 100);
 		login.add(pw_passwordField);
 		
-		JButton check_btn = new JButton(img4);
+		JButton check_btn = new JButton("로그인");
+		check_btn.setForeground(Color.WHITE);
+		check_btn.setBackground(new Color(0, 128, 192));
 		check_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				
@@ -151,31 +163,89 @@ public class Test3 extends JFrame {
 				System.out.println("로그인 성공 여부" + login_result);
 			}	
 		});
-		check_btn.setFont(new Font("굴림", Font.PLAIN, 60));
-		check_btn.setBounds(550, 730, 637, 87);
+		check_btn.setFont(new Font("HY헤드라인M", Font.PLAIN, 60));
+		check_btn.setBounds(585, 727, 700, 100);
 		login.add(check_btn);
 		
 		JLabel E_RAIL = new JLabel(updateIcon);
-		E_RAIL.setBounds(600, 35, 400, 330);
+		E_RAIL.setBounds(675, 32, 400, 330);
 		login.add(E_RAIL);
+		
+		JButton login_btn = new JButton(img7);
+		login_btn.setBounds(10, 10, 136, 136);
+		login.add(login_btn);
+		login_btn.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				CardLayout cardLayout = (CardLayout) contentPane.getLayout();
+//                cardLayout.show(contentPane, "생년월일");
+//            }
+			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				layeredPane.add(login);
+				layeredPane.repaint();
+				layeredPane.revalidate();
+			}
+		});
+		login_btn.setFont(new Font("굴림", Font.PLAIN, 70));
+		login_btn.setBorderPainted(false);
+		login_btn.setContentAreaFilled(false);
+		login_btn.setFocusPainted(false);
+		
+		JButton join_btn = new JButton("회원가입");
+		join_btn.setBorderPainted(false);
+		join_btn.setContentAreaFilled(false);
+		join_btn.setFocusPainted(false);
+		join_btn.setBounds(1325, 857, 350, 100);
+		login.add(join_btn);
+		join_btn.setForeground(new Color(0, 128, 192));
+		
+		
+//		JButton join_btn = new JButton("회원가입");
+//		join_btn.setForeground(new Color(0, 128, 192));
+//		join_btn.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				layeredPane.removeAll();
+//				layeredPane.add(join);
+//				layeredPane.repaint();
+//				layeredPane.revalidate();
+//			}
+//		});
+		
+		join_btn.setFont(new Font("HY헤드라인M", Font.PLAIN, 70));
 		
 		JPanel join = new JPanel();
 		layeredPane.add(join, "name_29419379635300");
 		join.setLayout(null);
 		
+		JButton login_btn_1 = new JButton(img7);
+		login_btn_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				layeredPane.removeAll();
+				layeredPane.add(login);
+				layeredPane.repaint();
+				layeredPane.revalidate();
+			}
+		});
+		login_btn_1.setFont(new Font("굴림", Font.PLAIN, 70));
+		login_btn_1.setFocusPainted(false);
+		login_btn_1.setContentAreaFilled(false);
+		login_btn_1.setBorderPainted(false);
+		login_btn_1.setBounds(10, 10, 136, 136);
+		join.add(login_btn_1);
+		
 		JLabel join_label = new JLabel("회원가입");
 		join_label.setHorizontalAlignment(SwingConstants.CENTER);
-		join_label.setFont(new Font("휴먼둥근헤드라인", Font.PLAIN, 70));
-		join_label.setBounds(85, 150, 400, 200);
+		join_label.setFont(new Font("HY헤드라인M", Font.PLAIN, 70));
+		join_label.setBounds(125, 150, 400, 100);
 		join.add(join_label);
 		
-		JLabel id_label_2 = new JLabel("아이디 :");
-		id_label_2.setFont(new Font("휴먼둥근헤드라인", Font.PLAIN, 40));
+		JLabel id_label_2 = new JLabel("아이디");
+		id_label_2.setFont(new Font("HY헤드라인M", Font.PLAIN, 40));
 		id_label_2.setBounds(550, 150, 200, 75);
 		join.add(id_label_2);
 		
-		JLabel pw_label_2 = new JLabel("비밀번호 :");
-		pw_label_2.setFont(new Font("휴먼둥근헤드라인", Font.PLAIN, 40));
+		JLabel pw_label_2 = new JLabel("비밀번호");
+		pw_label_2.setFont(new Font("HY헤드라인M", Font.PLAIN, 40));
 		pw_label_2.setBounds(550, 235, 200, 75);
 		join.add(pw_label_2);
 		
@@ -191,13 +261,13 @@ public class Test3 extends JFrame {
 			
 		join.add(pw_passwordField_2);
 		
-		JLabel name_label = new JLabel("이름 :");
-		name_label.setFont(new Font("휴먼둥근헤드라인", Font.PLAIN, 40));
+		JLabel name_label = new JLabel("이름");
+		name_label.setFont(new Font("HY헤드라인M", Font.PLAIN, 40));
 		name_label.setBounds(550, 320, 200, 75);
 		join.add(name_label);
 		
-		JLabel phone_label = new JLabel("전화번호 :");
-		phone_label.setFont(new Font("휴먼둥근헤드라인", Font.PLAIN, 40));
+		JLabel phone_label = new JLabel("전화번호");
+		phone_label.setFont(new Font("HY헤드라인M", Font.PLAIN, 40));
 		phone_label.setBounds(550, 485, 250, 75);
 		join.add(phone_label);
 		
@@ -213,13 +283,13 @@ public class Test3 extends JFrame {
 		join.add(phone_textField);
 		phone_textField.setColumns(10);
 		
-		JLabel birthday_label = new JLabel("생년월일 :");
-		birthday_label.setFont(new Font("휴먼둥근헤드라인", Font.PLAIN, 40));
+		JLabel birthday_label = new JLabel("생년월일");
+		birthday_label.setFont(new Font("HY헤드라인M", Font.PLAIN, 40));
 		birthday_label.setBounds(550, 400, 200, 75);
 		join.add(birthday_label);
 		
-		JLabel email_label = new JLabel("이메일 :");
-		email_label.setFont(new Font("휴먼둥근헤드라인", Font.PLAIN, 40));
+		JLabel email_label = new JLabel("이메일");
+		email_label.setFont(new Font("HY헤드라인M", Font.PLAIN, 40));
 		email_label.setBounds(550, 570, 250, 75);
 		join.add(email_label);
 		
@@ -235,7 +305,9 @@ public class Test3 extends JFrame {
 		join.add(email_textField);
 		email_textField.setColumns(10);
 		
-		JButton check_btn_2 = new JButton(img1);
+		JButton check_btn_2 = new JButton("가입 완료");
+		check_btn_2.setForeground(Color.WHITE);
+		check_btn_2.setBackground(new Color(0, 128, 192));
 //		check_btn_2.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
 //				id2 = id_textField_2.getText();
@@ -250,11 +322,13 @@ public class Test3 extends JFrame {
 //				System.out.println("회원가입 성공 여부 : " + join_result);
 //				}
 //		});
-		check_btn_2.setFont(new Font("굴림", Font.PLAIN, 60));
-		check_btn_2.setBounds(650, 675, 699, 83);
+		check_btn_2.setFont(new Font("HY헤드라인M", Font.PLAIN, 60));
+		check_btn_2.setBounds(650, 675, 700, 100);
 		join.add(check_btn_2);
 		
-		JButton chk_overlap_btn = new JButton(img2);
+		JButton chk_overlap_btn = new JButton("중복 확인");
+		chk_overlap_btn.setForeground(Color.WHITE);
+		chk_overlap_btn.setBackground(new Color(0, 128, 192));
 		chk_overlap_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				id2 = id_textField_2.getText();
@@ -262,8 +336,8 @@ public class Test3 extends JFrame {
 				dao3.id_check();
 			}
 		});
-		chk_overlap_btn.setFont(new Font("굴림", Font.PLAIN, 20));
-		chk_overlap_btn.setBounds(1250, 160, 179, 60);
+		chk_overlap_btn.setFont(new Font("HY헤드라인M", Font.PLAIN, 20));
+		chk_overlap_btn.setBounds(1250, 160, 180, 60);
 		join.add(chk_overlap_btn);
 		
 		JLabel pw_alrim = new JLabel();
@@ -286,24 +360,6 @@ public class Test3 extends JFrame {
 		birthday_alrim.setBounds(1250, 400, 400, 60);
 		join.add(birthday_alrim);
 		
-		JButton login_btn = new JButton(img7);
-		login_btn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				layeredPane.removeAll();
-				layeredPane.add(login);
-				layeredPane.repaint();
-				layeredPane.revalidate();
-			}
-		});
-		login_btn.setFont(new Font("굴림", Font.PLAIN, 70));
-		login_btn.setBounds(10, 10, 136, 136);
-		login_btn.setBorderPainted(false);
-		login_btn.setContentAreaFilled(false);
-		login_btn.setFocusPainted(false);
-		contentPane.add(login_btn);
-		
-		JButton join_btn = new JButton("회원가입");
-		join_btn.setForeground(new Color(0, 128, 192));
 		join_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				layeredPane.removeAll();
@@ -395,10 +451,6 @@ public class Test3 extends JFrame {
 				System.out.println("회원가입 성공 여부 : " + join_result);
 				}
 		});
-		
-		join_btn.setFont(new Font("HY헤드라인M", Font.PLAIN, 70));
-		join_btn.setBounds(1250, 880, 350, 100);
-		contentPane.add(join_btn);
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
 	}
 	

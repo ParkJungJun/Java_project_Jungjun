@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import java.awt.BorderLayout;
+import java.awt.Color;
 
 public class Admin_page {
 
@@ -71,13 +72,13 @@ public class Admin_page {
 		frame.getContentPane().add(login);
 		login.setLayout(null);
 		
-		JLabel id_label = new JLabel("아이디 :");
-		id_label.setFont(new Font("휴먼둥근헤드라인", Font.PLAIN, 50));
+		JLabel id_label = new JLabel("아이디");
+		id_label.setFont(new Font("HY헤드라인M", Font.PLAIN, 50));
 		id_label.setBounds(510, 440, 200, 100);
 		login.add(id_label);
 		
-		JLabel pw_label = new JLabel("비밀번호 :");
-		pw_label.setFont(new Font("휴먼둥근헤드라인", Font.PLAIN, 50));
+		JLabel pw_label = new JLabel("비밀번호");
+		pw_label.setFont(new Font("HY헤드라인M", Font.PLAIN, 50));
 		pw_label.setBounds(510, 570, 250, 100);
 		login.add(pw_label);
 		
@@ -92,7 +93,9 @@ public class Admin_page {
 		pw_passwordField.setBounds(810, 570, 400, 100);
 		login.add(pw_passwordField);
 		
-		JButton check_btn = new JButton(img2);
+		JButton check_btn = new JButton("로그인");
+		check_btn.setForeground(Color.WHITE);
+		check_btn.setBackground(new Color(0, 128, 192));
 		check_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				
@@ -104,8 +107,8 @@ public class Admin_page {
 				System.out.println(login_result);
 			}	
 		});
-		check_btn.setFont(new Font("굴림", Font.PLAIN, 60));
-		check_btn.setBounds(550, 730, 637, 87);
+		check_btn.setFont(new Font("HY헤드라인M", Font.PLAIN, 60));
+		check_btn.setBounds(500, 730, 700, 100);
 		login.add(check_btn);
 		
 		JLabel E_RAIL = new JLabel(updateIcon);
