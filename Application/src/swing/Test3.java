@@ -49,12 +49,18 @@ public class Test3 extends JFrame {
 	public static String birthday = "";
 	public static String email = "";
 	
-	ImageIcon img1 = new ImageIcon("C:/java_PJJ/Application/images/join_finish.PNG");
-	ImageIcon img2 = new ImageIcon("C:/java_PJJ/Application/images/chk_overlap.PNG");	
-	ImageIcon img3 = new ImageIcon("C:/java_PJJ/Application/images/E-RAIL.png");
-	ImageIcon img4 = new ImageIcon("C:/java_PJJ/Application/images/login.PNG");
-	ImageIcon img5 = new ImageIcon("C:/java_PJJ/Application/images/login_page.PNG");
-	ImageIcon img6 = new ImageIcon("C:/java_PJJ/Application/images/join_page.PNG");
+	ImageIcon img1 = new ImageIcon
+			("C:/java_PJJ/Java_project_Jungjun/Application/images/join_finish.PNG");
+	ImageIcon img2 = new ImageIcon
+			("C:/java_PJJ/Java_project_Jungjun/Application/images/chk_overlap.PNG");	
+	ImageIcon img3 = new ImageIcon
+			("C:/java_PJJ/Java_project_Jungjun/Application/images/E-RAIL.png");
+	ImageIcon img4 = new ImageIcon
+			("C:/java_PJJ/Java_project_Jungjun/Application/images/login.PNG");
+	ImageIcon img5 = new ImageIcon
+			("C:/java_PJJ/Java_project_Jungjun/Application/images/login_page.PNG");
+	ImageIcon img6 = new ImageIcon
+			("C:/java_PJJ/Java_project_Jungjun/Application/images/join_page.PNG");
 	
 	Image img = img3.getImage();
  	Image updateImg = img.getScaledInstance(400, 330, Image.SCALE_SMOOTH);

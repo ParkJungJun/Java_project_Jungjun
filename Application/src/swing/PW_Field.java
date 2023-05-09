@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
-
+// 미사용
 public class PW_Field extends JPasswordField{
 private boolean valid;
 	

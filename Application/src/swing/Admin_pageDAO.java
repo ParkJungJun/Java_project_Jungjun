@@ -3,22 +3,16 @@ package swing;
 import java.awt.Choice;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Image;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
-// 사용
-
-public class Test3DAO {
-	
+public class Admin_pageDAO {
 	static {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -44,8 +38,8 @@ public class Test3DAO {
 		String query ="SELECT id,password FROM user_info WHERE id =? AND password=?";
 		try( PreparedStatement pstmt = conn.prepareStatement(query);
 			){
-				pstmt.setString(1, Test3.id);
-				pstmt.setString(2, Test3.pw);
+				pstmt.setString(1, Admin_page.id);
+				pstmt.setString(2, Admin_page.pw);
 				
 				try(ResultSet rs = pstmt.executeQuery();){
 					if(rs.next()) {
@@ -67,6 +61,4 @@ public class Test3DAO {
 			return false;
 		}
 	}
-	
-	
 }
