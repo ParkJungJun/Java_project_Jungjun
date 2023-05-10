@@ -1,4 +1,4 @@
-package swing;
+package swing.ticket;
 
 import java.awt.Color;
 import java.awt.EventQueue;

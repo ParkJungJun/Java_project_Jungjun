@@ -1,4 +1,4 @@
-package swing;
+package swing.login_join_page;
 
 public class Number_chk {
 	public boolean number_chk(String num) {

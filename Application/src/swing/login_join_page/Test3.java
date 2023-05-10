@@ -1,4 +1,4 @@
-package swing;
+package swing.login_join_page;
 
 import java.awt.CardLayout;
 import java.awt.Color;

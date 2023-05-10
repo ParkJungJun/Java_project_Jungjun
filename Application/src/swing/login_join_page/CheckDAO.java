@@ -1,4 +1,4 @@
-package swing;
+package swing.login_join_page;
 
 import java.awt.Choice;
 import java.awt.Dimension;
@@ -11,8 +11,8 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
-
-public class Admin_pageDAO {
+// 사용
+public class CheckDAO {
 	static {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -23,42 +23,39 @@ public class Admin_pageDAO {
 	private Connection conn = getConnection();
 	public static Connection getConnection() {
 		try {
-			return DriverManager.getConnection
-					("jdbc:oracle:thin:@localhost:1521:XE", "hr","1234");
+			return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "hr","1234");
 		}catch(SQLException e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
 	
-	public boolean login_chk() {
+	public void id_check() {
 		UIManager.put("OptionPane.minimumSize",new Dimension(500,500));
 		UIManager.put("OptionPane.messageFont",
 				new Font("굴림", Font.BOLD, 50));
-		String query ="SELECT id,password FROM user_info WHERE id =? AND password=?";
+		String query = "SELECT * FROM user_info WHERE id = ?";
+		
 		try( PreparedStatement pstmt = conn.prepareStatement(query);
-			){
-				pstmt.setString(1, Admin_page.id);
-				pstmt.setString(2, Admin_page.pw);
-				
-				try(ResultSet rs = pstmt.executeQuery();){
-					if(rs.next()) {
-						JOptionPane.showMessageDialog(null,"로그인에 성공했습니다");
-						Choice c = new Choice();
-						c.setVisible(true);
-						return true;
-					}else {
-						JOptionPane.showMessageDialog(null,"로그인에 실패했습니다");
-						return false;
-					}
-				}catch(Exception e) {
-					e.printStackTrace();
-					return false;
+				){
+			pstmt.setString(1,Test3.id2);
+			
+			try(ResultSet rs = pstmt.executeQuery();){
+				if(rs.next()) {
+					JOptionPane.showMessageDialog(null,"이미 존재하는 아이디입니다");
+					Choice c = new Choice();
+					c.setVisible(true);
+				}else if(!(rs.next()) && Test3.id2.equals("")){
+					JOptionPane.showMessageDialog(null,"아이디를 입력하세요");
+				}else {
+					JOptionPane.showMessageDialog(null,"사용가능한 아이디입니다");
 				}
-	
-		}catch(SQLException e) {
+			}catch(Exception e) {
+					e.printStackTrace();
+			}
+			
+		}catch (SQLException e) {
 			e.printStackTrace();
-			return false;
 		}
 	}
 }

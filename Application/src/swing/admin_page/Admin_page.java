@@ -1,4 +1,4 @@
-package swing;
+package swing.admin_page;
 
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 

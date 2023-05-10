@@ -1,4 +1,4 @@
-package swing;
+package swing.login_join_page;
 
 import java.util.Arrays;
 // 사용

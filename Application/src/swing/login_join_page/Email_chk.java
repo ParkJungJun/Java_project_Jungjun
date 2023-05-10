@@ -1,4 +1,4 @@
-package swing;
+package swing.login_join_page;
 
 public class Email_chk {
 	public boolean email_chk(String email) {

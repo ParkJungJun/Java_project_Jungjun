@@ -1,4 +1,4 @@
-package swing;
+package test;
 
 import java.awt.Color;
 import java.awt.event.KeyAdapter;

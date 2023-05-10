@@ -1,4 +1,4 @@
-package swing;
+package test;
 
 import java.awt.EventQueue;
 import java.awt.Font;

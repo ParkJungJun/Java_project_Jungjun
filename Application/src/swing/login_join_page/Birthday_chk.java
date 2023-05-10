@@ -1,4 +1,4 @@
-package swing;
+package swing.login_join_page;
 
 public class Birthday_chk {
 	public boolean birthday_chk(String birthday) {

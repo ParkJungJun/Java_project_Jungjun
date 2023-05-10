@@ -1,18 +1,24 @@
-package swing;
+package swing.login_join_page;
 
 import java.awt.Choice;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Image;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+
 // 사용
-public class CheckDAO {
+
+public class Test3DAO {
+	
 	static {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -23,39 +29,44 @@ public class CheckDAO {
 	private Connection conn = getConnection();
 	public static Connection getConnection() {
 		try {
-			return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "hr","1234");
+			return DriverManager.getConnection
+					("jdbc:oracle:thin:@localhost:1521:XE", "hr","1234");
 		}catch(SQLException e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
 	
-	public void id_check() {
+	public boolean login_chk() {
 		UIManager.put("OptionPane.minimumSize",new Dimension(500,500));
 		UIManager.put("OptionPane.messageFont",
 				new Font("굴림", Font.BOLD, 50));
-		String query = "SELECT * FROM user_info WHERE id = ?";
-		
+		String query ="SELECT id,password FROM user_info WHERE id =? AND password=?";
 		try( PreparedStatement pstmt = conn.prepareStatement(query);
-				){
-			pstmt.setString(1,Test3.id2);
-			
-			try(ResultSet rs = pstmt.executeQuery();){
-				if(rs.next()) {
-					JOptionPane.showMessageDialog(null,"이미 존재하는 아이디입니다");
-					Choice c = new Choice();
-					c.setVisible(true);
-				}else if(!(rs.next()) && Test3.id2.equals("")){
-					JOptionPane.showMessageDialog(null,"아이디를 입력하세요");
-				}else {
-					JOptionPane.showMessageDialog(null,"사용가능한 아이디입니다");
-				}
-			}catch(Exception e) {
+			){
+				pstmt.setString(1, Test3.id);
+				pstmt.setString(2, Test3.pw);
+				
+				try(ResultSet rs = pstmt.executeQuery();){
+					if(rs.next()) {
+						JOptionPane.showMessageDialog(null,"로그인에 성공했습니다");
+						Choice c = new Choice();
+						c.setVisible(true);
+						return true;
+					}else {
+						JOptionPane.showMessageDialog(null,"로그인에 실패했습니다");
+						return false;
+					}
+				}catch(Exception e) {
 					e.printStackTrace();
-			}
-			
-		}catch (SQLException e) {
+					return false;
+				}
+	
+		}catch(SQLException e) {
 			e.printStackTrace();
+			return false;
 		}
 	}
+	
+	
 }

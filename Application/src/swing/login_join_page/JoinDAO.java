@@ -1,4 +1,4 @@
-package swing;
+package swing.login_join_page;
 
 import java.awt.Choice;
 import java.awt.Dimension;
