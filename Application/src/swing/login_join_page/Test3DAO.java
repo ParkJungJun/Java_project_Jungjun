@@ -40,8 +40,8 @@ public class Test3DAO {
 	public boolean login_chk() {
 		UIManager.put("OptionPane.minimumSize",new Dimension(500,500));
 		UIManager.put("OptionPane.messageFont",
-				new Font("굴림", Font.BOLD, 50));
-		String query ="SELECT id,password FROM user_info WHERE id =? AND password=?";
+				new Font("HY헤드라인M", Font.BOLD, 50));
+		String query ="SELECT * FROM user_info WHERE id =? AND password=?";
 		try( PreparedStatement pstmt = conn.prepareStatement(query);
 			){
 				pstmt.setString(1, Test3.id);

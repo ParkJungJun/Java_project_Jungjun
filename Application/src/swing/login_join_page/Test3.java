@@ -10,8 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-import javax.swing.AbstractAction;
-import javax.swing.Action;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -19,10 +18,10 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-import javax.swing.Icon;
 
 public class Test3 extends JFrame {
 	
@@ -36,8 +35,6 @@ public class Test3 extends JFrame {
 	private JTextField birthday_textField;
 	private JTextField email_textField;
 	
-	private final Action action = new SwingAction();
-	
 	public static String id = "";
 	public static String pw = "";
 	
@@ -47,11 +44,7 @@ public class Test3 extends JFrame {
 	public static String phone_number = "";
 	public static String birthday = "";
 	public static String email = "";
-	
-	public static String pw_alrim_str = "";
-	public static String email_alrim_str = "";
-	public static String number_alrim_str = "";
-	public static String birthday_alrim_str = "";
+	public static String preferential_treatment = "";
 	
 	public static boolean pw_chk_B = false;
 	public static boolean email_chk_B = false;
@@ -138,7 +131,7 @@ public class Test3 extends JFrame {
 				
 				Test3DAO dao = new Test3DAO();
 				boolean login_result = dao.login_chk();
-				System.out.println("로그인 성공 여부" + login_result);
+				System.out.println("로그인 성공 여부 " + login_result);
 			}	
 		});
 		check_btn.setFont(new Font("HY헤드라인M", Font.PLAIN, 60));
@@ -287,7 +280,7 @@ public class Test3 extends JFrame {
 		check_btn_2.setForeground(Color.WHITE);
 		check_btn_2.setBackground(new Color(0, 128, 192));
 		check_btn_2.setFont(new Font("HY헤드라인M", Font.PLAIN, 60));
-		check_btn_2.setBounds(650, 675, 700, 100);
+		check_btn_2.setBounds(650, 775, 700, 100);
 		join.add(check_btn_2);
 		
 		JButton chk_overlap_btn = new JButton("중복 확인");
@@ -324,6 +317,53 @@ public class Test3 extends JFrame {
 		birthday_alrim.setBounds(1250, 400, 400, 60);
 		join.add(birthday_alrim);
 		
+		JLabel preferential_treatment_label = new JLabel("특수 조건");
+		preferential_treatment_label.setFont(new Font("HY헤드라인M", Font.PLAIN, 40));
+		preferential_treatment_label.setBounds(550, 645, 250, 75);
+		join.add(preferential_treatment_label);
+		
+		JRadioButton adult_radio_btn = new JRadioButton("성인");
+		adult_radio_btn.setSelected(true);
+		adult_radio_btn.setFont(new Font("HY헤드라인M", Font.PLAIN, 15));
+		adult_radio_btn.setBounds(800, 645, 65, 75);
+		join.add(adult_radio_btn);
+		
+		JRadioButton old_man_radio_btn = new JRadioButton("경로");
+		old_man_radio_btn.setFont(new Font("HY헤드라인M", Font.PLAIN, 15));
+		old_man_radio_btn.setBounds(900, 645, 65, 75);
+		join.add(old_man_radio_btn);
+		
+		JRadioButton kid_radio_btn = new JRadioButton("아동");
+		kid_radio_btn.setFont(new Font("HY헤드라인M", Font.PLAIN, 15));
+		kid_radio_btn.setBounds(1000, 645, 65, 75);
+		join.add(kid_radio_btn);
+		
+		JButton preferential_treatment_btn = new JButton("확인");
+		preferential_treatment_btn.setForeground(Color.WHITE);
+		preferential_treatment_btn.setBackground(new Color(0, 128, 192));
+		preferential_treatment_btn.setFont(new Font("HY헤드라인M", Font.PLAIN, 40));
+		preferential_treatment_btn.setBounds(1200, 660, 130, 60);
+		join.add(preferential_treatment_btn);
+		
+		ButtonGroup group = new ButtonGroup();
+		group.add(adult_radio_btn);
+		group.add(old_man_radio_btn);
+		group.add(kid_radio_btn);
+		
+		preferential_treatment_btn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 if (adult_radio_btn.isSelected()) {
+					 preferential_treatment = "adult";
+					 System.out.println(preferential_treatment);
+				 }else if(old_man_radio_btn.isSelected()) {
+					 preferential_treatment = "old_man";
+					 System.out.println(preferential_treatment);
+				 }else if(kid_radio_btn.isSelected()) {
+					 preferential_treatment = "kid";
+					 System.out.println(preferential_treatment);
+				 }
+			}
+		});
 		join_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				layeredPane.removeAll();
@@ -408,14 +448,5 @@ public class Test3 extends JFrame {
 				}
 		});
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
-	}
-	
-	private class SwingAction extends AbstractAction {
-		public SwingAction() {
-			putValue(NAME, "SwingAction");
-			putValue(SHORT_DESCRIPTION, "Some short description");
-		}
-		public void actionPerformed(ActionEvent e) {
-		}
 	}
 }

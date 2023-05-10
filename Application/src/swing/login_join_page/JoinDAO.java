@@ -44,8 +44,8 @@ public class JoinDAO {
 				new Font("굴림", Font.BOLD, 50));
 		String query =
 				"INSERT INTO user_info "
-				+ "(id,password,name,phone_number,birthday,email)"
-				+ " VALUES (?,?,?,?,?,?)";
+				+ "(id,password,name,phone_number,birthday,email,preferential_treatment,usernum_pk)"
+				+ " VALUES (?,?,?,?,?,?,?,'USER'||TO_CHAR(USERNUM_PK.nextval,'000000'))";
 		
 		try( PreparedStatement pstmt = conn.prepareStatement(query);
 				){
@@ -57,6 +57,8 @@ public class JoinDAO {
 						pstmt.setString(4, Test3.phone_number);
 						pstmt.setString(5, Test3.birthday);
 						pstmt.setString(6, Test3.email);
+						pstmt.setString(7, Test3.preferential_treatment);
+						//pstmt.executeUpdate();
 						try(ResultSet rs = pstmt.executeQuery();){
 							if(rs.next()) {
 								JOptionPane.showMessageDialog(null,"회원가입 성공");
@@ -76,12 +78,12 @@ public class JoinDAO {
 					
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog
-			(null,"회원가입 실패(중복된 아이디가 있을 수 있습니다)");
+			(null,"회원가입 실패(중복된 아이디가 있을 수 있습니다)_1");
 			e.printStackTrace();
 			return false;
 		}catch(Exception e) {
 			JOptionPane.showMessageDialog
-			(null,"회원가입 실패(중복된 아이디가 있을 수 있습니다)");
+			(null,"회원가입 실패(중복된 아이디가 있을 수 있습니다)_2");
 			e.printStackTrace();
 			return false;
 		}
