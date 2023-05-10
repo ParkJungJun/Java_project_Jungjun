@@ -58,24 +58,10 @@ public class Test3 extends JFrame {
 	public static boolean num_chk_B = false;
 	public static boolean birthday_chk_B = false;
 	
-	
-	
-	ImageIcon img1 = new ImageIcon
-			("C:/java_PJJ/Java_project_Jungjun/Application/images/join_finish.PNG");
-	ImageIcon img2 = new ImageIcon
-			("C:/java_PJJ/Java_project_Jungjun/Application/images/chk_overlap.PNG");	
 	ImageIcon img3 = new ImageIcon
 			("C:/java_PJJ/Java_project_Jungjun/Application/images/E-RAIL.png");
-	ImageIcon img4 = new ImageIcon
-			("C:/java_PJJ/Java_project_Jungjun/Application/images/login.PNG");
-	ImageIcon img5 = new ImageIcon
-			("C:/java_PJJ/Java_project_Jungjun/Application/images/login_page.PNG");
-	ImageIcon img6 = new ImageIcon
-			("C:/java_PJJ/Java_project_Jungjun/Application/images/join_page.PNG");
 	ImageIcon img7 = new ImageIcon
 			("C:/java_PJJ/Java_project_Jungjun/Application/images/back.PNG");
-	ImageIcon img8 = new ImageIcon
-			("C:/java_PJJ/Java_project_Jungjun/Application/images/main.PNG");
 	
 	Image img = img3.getImage();
  	Image updateImg = img.getScaledInstance(400, 330, Image.SCALE_SMOOTH);
@@ -116,14 +102,6 @@ public class Test3 extends JFrame {
 		contentPane.add(layeredPane);
 		layeredPane.setLayout(new CardLayout(0, 0));
 		
-//		JPanel main = new JPanel();
-//		layeredPane.add(main, "name_2186565809768800");
-//		main.setLayout(null);
-//		
-//		JLabel main_image = new JLabel(img8);
-//		main_image.setBounds(0, 0, 1700, 1000);
-//		main.add(main_image);
-		
 		JPanel login = new JPanel();
 		layeredPane.add(login, "name_29419370275400");
 		login.setLayout(null);
@@ -145,7 +123,7 @@ public class Test3 extends JFrame {
 		id_textField.setColumns(10);
 		
 		pw_passwordField = new JPasswordField();
-		pw_passwordField.setFont(new Font("HY헤드라인M", Font.PLAIN, 50));
+		pw_passwordField.setFont(new Font("굴림", Font.PLAIN, 50));
 		pw_passwordField.setBounds(885, 567, 400, 100);
 		login.add(pw_passwordField);
 		
@@ -256,7 +234,7 @@ public class Test3 extends JFrame {
 		join.add(id_textField_2);
 		
 		pw_passwordField_2 = new JPasswordField();
-		pw_passwordField_2.setFont(new Font("HY헤드라인M", Font.PLAIN, 40));
+		pw_passwordField_2.setFont(new Font("굴림", Font.PLAIN, 40));
 		pw_passwordField_2.setBounds(800, 235, 400, 75);
 			
 		join.add(pw_passwordField_2);

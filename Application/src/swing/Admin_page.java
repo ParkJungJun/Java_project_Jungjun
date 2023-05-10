@@ -23,8 +23,7 @@ public class Admin_page {
 	private JPasswordField pw_passwordField;
 	ImageIcon img1 = new ImageIcon
 			("C:/java_PJJ/Java_project_Jungjun/Application/images/E-RAIL.png");
-	ImageIcon img2 = new ImageIcon
-			("C:/java_PJJ/Java_project_Jungjun/Application/images/login.PNG");
+	
 	private JPanel login;
 	public static String id = "";
 	public static String pw = "";
@@ -83,7 +82,7 @@ public class Admin_page {
 		login.add(pw_label);
 		
 		id_textField = new JTextField();
-		id_textField.setFont(new Font("굴림", Font.PLAIN, 50));
+		id_textField.setFont(new Font("HY헤드라인M", Font.PLAIN, 50));
 		id_textField.setBounds(810, 440, 400, 100);
 		login.add(id_textField);
 		id_textField.setColumns(10);

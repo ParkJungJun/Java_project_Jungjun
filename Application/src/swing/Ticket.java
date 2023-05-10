@@ -28,14 +28,8 @@ public class Ticket {
 	
 	ImageIcon img1 = new ImageIcon
 	("C:/java_PJJ/Java_project_Jungjun/Application/images/ticket_top_image.PNG");
-	ImageIcon img2 = new ImageIcon
-			("C:/java_PJJ/Java_project_Jungjun/Application/images/train_num.PNG");
-	ImageIcon img3 = new ImageIcon
-			("C:/java_PJJ/Java_project_Jungjun/Application/images/seat_num.PNG");
 	ImageIcon img4 = new ImageIcon
 			("C:/java_PJJ/Java_project_Jungjun/Application/images/E-RAIL.PNG");
-	ImageIcon img5 = new ImageIcon
-			("C:/java_PJJ/Java_project_Jungjun/Application/images/payment.PNG");
 	ImageIcon img6 = new ImageIcon
 			("C:/java_PJJ/Java_project_Jungjun/Application/images/back.PNG");
 	ImageIcon img7 = new ImageIcon
