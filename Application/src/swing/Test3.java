@@ -139,13 +139,13 @@ public class Test3 extends JFrame {
 		login.add(pw_label);
 		
 		id_textField = new JTextField();
-		id_textField.setFont(new Font("굴림", Font.PLAIN, 50));
+		id_textField.setFont(new Font("HY헤드라인M", Font.PLAIN, 50));
 		id_textField.setBounds(885, 437, 400, 100);
 		login.add(id_textField);
 		id_textField.setColumns(10);
 		
 		pw_passwordField = new JPasswordField();
-		pw_passwordField.setFont(new Font("굴림", Font.PLAIN, 50));
+		pw_passwordField.setFont(new Font("HY헤드라인M", Font.PLAIN, 50));
 		pw_passwordField.setBounds(885, 567, 400, 100);
 		login.add(pw_passwordField);
 		
@@ -186,7 +186,7 @@ public class Test3 extends JFrame {
 				layeredPane.revalidate();
 			}
 		});
-		login_btn.setFont(new Font("굴림", Font.PLAIN, 70));
+		login_btn.setFont(new Font("HY헤드라인M", Font.PLAIN, 70));
 		login_btn.setBorderPainted(false);
 		login_btn.setContentAreaFilled(false);
 		login_btn.setFocusPainted(false);
@@ -226,7 +226,7 @@ public class Test3 extends JFrame {
 				layeredPane.revalidate();
 			}
 		});
-		login_btn_1.setFont(new Font("굴림", Font.PLAIN, 70));
+		login_btn_1.setFont(new Font("HY헤드라인M", Font.PLAIN, 70));
 		login_btn_1.setFocusPainted(false);
 		login_btn_1.setContentAreaFilled(false);
 		login_btn_1.setBorderPainted(false);
@@ -250,13 +250,13 @@ public class Test3 extends JFrame {
 		join.add(pw_label_2);
 		
 		id_textField_2 = new JTextField();
-		id_textField_2.setFont(new Font("굴림", Font.PLAIN, 40));
+		id_textField_2.setFont(new Font("HY헤드라인M", Font.PLAIN, 40));
 		id_textField_2.setColumns(10);
 		id_textField_2.setBounds(800, 150, 400, 75);
 		join.add(id_textField_2);
 		
 		pw_passwordField_2 = new JPasswordField();
-		pw_passwordField_2.setFont(new Font("굴림", Font.PLAIN, 40));
+		pw_passwordField_2.setFont(new Font("HY헤드라인M", Font.PLAIN, 40));
 		pw_passwordField_2.setBounds(800, 235, 400, 75);
 			
 		join.add(pw_passwordField_2);
@@ -272,13 +272,13 @@ public class Test3 extends JFrame {
 		join.add(phone_label);
 		
 		name_textField = new JTextField();
-		name_textField.setFont(new Font("굴림", Font.PLAIN, 40));
+		name_textField.setFont(new Font("HY헤드라인M", Font.PLAIN, 40));
 		name_textField.setBounds(800, 320, 400, 75);
 		join.add(name_textField);
 		name_textField.setColumns(10);
 		
 		phone_textField = new JTextField();
-		phone_textField.setFont(new Font("굴림", Font.PLAIN, 40));
+		phone_textField.setFont(new Font("HY헤드라인M", Font.PLAIN, 40));
 		phone_textField.setBounds(800, 485, 400, 75);
 		join.add(phone_textField);
 		phone_textField.setColumns(10);
@@ -294,13 +294,13 @@ public class Test3 extends JFrame {
 		join.add(email_label);
 		
 		birthday_textField = new JTextField();
-		birthday_textField.setFont(new Font("굴림", Font.PLAIN, 40));
+		birthday_textField.setFont(new Font("HY헤드라인M", Font.PLAIN, 40));
 		birthday_textField.setBounds(800, 405, 400, 75);
 		join.add(birthday_textField);
 		birthday_textField.setColumns(10);
 		
 		email_textField = new JTextField();
-		email_textField.setFont(new Font("굴림", Font.PLAIN, 40));
+		email_textField.setFont(new Font("HY헤드라인M", Font.PLAIN, 40));
 		email_textField.setBounds(800, 570, 400, 75);
 		join.add(email_textField);
 		email_textField.setColumns(10);
@@ -308,20 +308,6 @@ public class Test3 extends JFrame {
 		JButton check_btn_2 = new JButton("가입 완료");
 		check_btn_2.setForeground(Color.WHITE);
 		check_btn_2.setBackground(new Color(0, 128, 192));
-//		check_btn_2.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				id2 = id_textField_2.getText();
-//				pw2 = pw_passwordField_2.getText();
-//				name = name_textField.getText();
-//				phone_number = phone_textField.getText();
-//				birthday = birthday_textField.getText();
-//				email = email_textField.getText();
-//				
-//				JoinDAO dao2 = new JoinDAO();
-//				boolean join_result = dao2.join_chk();
-//				System.out.println("회원가입 성공 여부 : " + join_result);
-//				}
-//		});
 		check_btn_2.setFont(new Font("HY헤드라인M", Font.PLAIN, 60));
 		check_btn_2.setBounds(650, 675, 700, 100);
 		join.add(check_btn_2);
@@ -381,8 +367,6 @@ public class Test3 extends JFrame {
 				}else {
 					pw_alrim.setText("6자리이상 영어 대문자,소문자,숫자,특수문자를 포함하세요");
 				}
-//				pw_alrim.setText(pw.pw_chk(pw2));
-//				pw_alrim_str = pw_alrim.getText();
 			}
 		});
 		
@@ -398,8 +382,6 @@ public class Test3 extends JFrame {
 				}else {
 					email_alrim.setText("이메일을 정확히 입력하세요");
 				}
-//				email_alrim.setText(email_1.email_chk(email));
-//				email_alrim_str = email_alrim.getText();
 			}
 		});
 		
@@ -415,8 +397,6 @@ public class Test3 extends JFrame {
 				}else {
 					number_alrim.setText("-를 포함하여 입력하세요");
 				}
-//				number_alrim.setText(number_1.number_chk(phone_number));
-//				number_alrim_str = number_alrim.getText();
 			}
 		});
 		
@@ -432,8 +412,6 @@ public class Test3 extends JFrame {
 				}else {
 					birthday_alrim.setText("-를 포함하여 올바른 값을 입력하세요");
 				}
-//				birthday_alrim.setText(chk_birthday.birthday_chk(birthday));
-//				birthday_alrim_str = birthday_alrim.getText();
 			}
 		});
 		
