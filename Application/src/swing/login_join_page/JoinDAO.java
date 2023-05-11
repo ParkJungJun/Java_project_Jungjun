@@ -45,7 +45,7 @@ public class JoinDAO {
 		String query =
 				"INSERT INTO user_info "
 				+ "(id,password,name,phone_number,birthday,email,preferential_treatment,usernum_pk)"
-				+ " VALUES (?,?,?,?,?,?,?,'USER'||TO_CHAR(USERNUM_PK.nextval,'000000'))";
+				+ " VALUES(?,?,?,?,?,?,?,'USER'||trim(TO_CHAR(USERNUM_PK.nextval,'000000')))";
 		
 		try( PreparedStatement pstmt = conn.prepareStatement(query);
 				){
