@@ -35,8 +35,8 @@ public class RegisterFrame extends JFrame{
 	JTextField socialNumberField = new JTextField();
 	JTextField emailFieled = new JTextField();
 	
-	JButton duplIdBtn = new IdDuplChkButton(idField, idStateLabel);
-	JButton joinBtn = new JoinButton(this);
+	//JButton duplIdBtn = new IdDuplChkButton(idField, idStateLabel);
+//	/JButton joinBtn = new JoinButton(this);
 	
 	public RegisterFrame() {
 		idLabel.setBounds(10,10,100,30);
@@ -60,8 +60,8 @@ public class RegisterFrame extends JFrame{
 		socialNumberField.setBounds(100,250,200,26);
 		emailFieled.setBounds(100,310,200,26);
 		
-		duplIdBtn.setBounds(320,10,100,26);
-		joinBtn.setBounds(10,360,90,26);
+		//duplIdBtn.setBounds(320,10,100,26);
+		//joinBtn.setBounds(10,360,90,26);
 		add(idLabel);
 		add(pwLabel);
 		add(pwChkLabel);
@@ -83,8 +83,8 @@ public class RegisterFrame extends JFrame{
 		add(socialNumberField);
 		add(emailFieled);
 		
-		add(duplIdBtn);
-		add(joinBtn);
+		//add(duplIdBtn);
+		//add(joinBtn);
 		
 		setTitle("회원가입");
 		setLayout(null);

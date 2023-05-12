@@ -10,10 +10,10 @@ public class D13_ParkingSystem {
 		LocalDate today = LocalDate.now();
 		LocalDate firstDay = LocalDate.of(2018,9,1);
 		DayOfWeek dow = today.getDayOfWeek();
-//		System.out.println(today.getDayOfWeek());
-//		System.out.println("요일값: " + dow.getValue());
-		Car c = new Car(1557, "T1");
-		
+		System.out.println(today.getDayOfWeek());
+		//System.out.println("요일값: " + dow.getValue());
+		Car c = new Car(1010, "아");
+		System.out.println(c.kind());
 		if(dow.getValue() == 2) {
 			if((c.carKind.equals("장애인") || c.carKind.equals("유아동승") || c.carKind.equals("경차"))
 					&& (c.carNum % 10 != 2 ||c.carNum % 10 != 7)) {
@@ -42,7 +42,7 @@ public class D13_ParkingSystem {
 			}else {
 				System.out.println(c +"은(는) 목요일에 출입제한차량입니다");
 			}
-		}else if(dow.getValue() == 2) {
+		}else if(dow.getValue() == 5) {
 			if((c.carKind.equals("장애인") || c.carKind.equals("유아동승") || c.carKind.equals("경차"))
 					&& (c.carNum % 10 != 5 ||c.carNum % 10 != 0)) {
 				System.out.println(c +"은(는) 금요일에 통과가능차량입니다");
@@ -57,7 +57,7 @@ public class D13_ParkingSystem {
 }
 class Car {
 	int carNum;
-	static String[] carKindArr = {"기본", "장애인차량", "유아동승", "경차"};
+	static String[] carKindArr = {"기본", "장애인", "유아동승", "경차"};
 	int carKindNum;
 	String carKind;
 

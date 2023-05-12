@@ -146,10 +146,10 @@ public class Test3 extends JFrame {
 		E_RAIL.setBounds(675, 32, 400, 330);
 		login.add(E_RAIL);
 		
-		JButton login_btn = new JButton(img7);
-		login_btn.setBounds(10, 10, 136, 136);
-		login.add(login_btn);
-		login_btn.addActionListener(new ActionListener() {
+		JButton back_to_main_btn = new JButton(img7);
+		back_to_main_btn.setBounds(10, 10, 136, 136);
+		login.add(back_to_main_btn);
+		back_to_main_btn.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
 //				CardLayout cardLayout = (CardLayout) contentPane.getLayout();
 //                cardLayout.show(contentPane, "생년월일");
@@ -161,10 +161,10 @@ public class Test3 extends JFrame {
 				layeredPane.revalidate();
 			}
 		});
-		login_btn.setFont(new Font("HY헤드라인M", Font.PLAIN, 70));
-		login_btn.setBorderPainted(false);
-		login_btn.setContentAreaFilled(false);
-		login_btn.setFocusPainted(false);
+		back_to_main_btn.setFont(new Font("HY헤드라인M", Font.PLAIN, 70));
+		back_to_main_btn.setBorderPainted(false);
+		back_to_main_btn.setContentAreaFilled(false);
+		back_to_main_btn.setFocusPainted(false);
 		
 		JButton join_btn = new JButton("회원가입");
 		join_btn.setBorderPainted(false);
@@ -192,8 +192,8 @@ public class Test3 extends JFrame {
 		layeredPane.add(join, "name_29419379635300");
 		join.setLayout(null);
 		
-		JButton login_btn_1 = new JButton(img7);
-		login_btn_1.addActionListener(new ActionListener() {
+		JButton back_to_login_btn = new JButton(img7);
+		back_to_login_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				layeredPane.removeAll();
 				layeredPane.add(login);
@@ -201,12 +201,12 @@ public class Test3 extends JFrame {
 				layeredPane.revalidate();
 			}
 		});
-		login_btn_1.setFont(new Font("HY헤드라인M", Font.PLAIN, 70));
-		login_btn_1.setFocusPainted(false);
-		login_btn_1.setContentAreaFilled(false);
-		login_btn_1.setBorderPainted(false);
-		login_btn_1.setBounds(10, 10, 136, 136);
-		join.add(login_btn_1);
+		back_to_login_btn.setFont(new Font("HY헤드라인M", Font.PLAIN, 70));
+		back_to_login_btn.setFocusPainted(false);
+		back_to_login_btn.setContentAreaFilled(false);
+		back_to_login_btn.setBorderPainted(false);
+		back_to_login_btn.setBounds(10, 10, 136, 136);
+		join.add(back_to_login_btn);
 		
 		JLabel join_label = new JLabel("회원가입");
 		join_label.setHorizontalAlignment(SwingConstants.CENTER);
