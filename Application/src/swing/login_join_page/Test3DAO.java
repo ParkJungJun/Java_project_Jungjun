@@ -19,6 +19,8 @@ import javax.swing.UIManager;
 
 public class Test3DAO {
 	
+	OjdbcConnectionPool cp = StaticResources.cp;
+	
 	static {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -42,8 +44,14 @@ public class Test3DAO {
 		UIManager.put("OptionPane.messageFont",
 				new Font("HY헤드라인M", Font.BOLD, 50));
 		String query ="SELECT * FROM user_info WHERE id =? AND password=?";
-		try( PreparedStatement pstmt = conn.prepareStatement(query);
-			){
+		
+		try (
+				OjdbcSession session = cp.getSession();	
+			) {
+			Connection conn = session.getConnection();
+		
+			try( PreparedStatement pstmt = conn.prepareStatement(query);
+					){
 				pstmt.setString(1, Test3.id);
 				pstmt.setString(2, Test3.pw);
 				
@@ -58,11 +66,18 @@ public class Test3DAO {
 						return false;
 					}
 				}catch(Exception e) {
+					JOptionPane.showMessageDialog(null,"로그인에 실패했습니다");
 					e.printStackTrace();
 					return false;
 				}
 	
-		}catch(SQLException e) {
+			}catch(SQLException e) {
+				JOptionPane.showMessageDialog(null,"로그인에 실패했습니다");
+				e.printStackTrace();
+				return false;
+			}
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(null,"로그인에 실패했습니다");
 			e.printStackTrace();
 			return false;
 		}

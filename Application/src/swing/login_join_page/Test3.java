@@ -2,6 +2,7 @@ package swing.login_join_page;
 
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
@@ -16,11 +17,13 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 public class Test3 extends JFrame {
@@ -50,6 +53,7 @@ public class Test3 extends JFrame {
 	public static boolean email_chk_B = false;
 	public static boolean num_chk_B = false;
 	public static boolean birthday_chk_B = false;
+	public static boolean preferential_treatment_chk_B = false;
 	
 	ImageIcon img3 = new ImageIcon
 			("C:/java_PJJ/Java_project_Jungjun/Application/images/E-RAIL.png");
@@ -352,15 +356,21 @@ public class Test3 extends JFrame {
 		
 		preferential_treatment_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				UIManager.put("OptionPane.minimumSize",new Dimension(500,500));
+				UIManager.put("OptionPane.messageFont",
+						new Font("HY헤드라인M", Font.BOLD, 50));
 				 if (adult_radio_btn.isSelected()) {
 					 preferential_treatment = "adult";
-					 System.out.println(preferential_treatment);
+					 preferential_treatment_chk_B = true;
+					 JOptionPane.showMessageDialog(null,"성인이 선택되었습니다");
 				 }else if(old_man_radio_btn.isSelected()) {
 					 preferential_treatment = "old_man";
-					 System.out.println(preferential_treatment);
+					 preferential_treatment_chk_B = true;
+					 JOptionPane.showMessageDialog(null,"경로가 선택되었습니다");
 				 }else if(kid_radio_btn.isSelected()) {
 					 preferential_treatment = "kid";
-					 System.out.println(preferential_treatment);
+					 preferential_treatment_chk_B = true;
+					 JOptionPane.showMessageDialog(null,"아동이 선택되었습니다");
 				 }
 			}
 		});
